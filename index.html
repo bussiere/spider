@@ -1,0 +1,26 @@
+<html>
+<body>
+
+<script src="jquery-3.3.1.min.js"></script>
+
+<script>
+
+var request = $.ajax({
+  url: "script.php",
+  type: "POST",
+  data: {id : 3},
+  dataType: "html"
+});
+
+request.done(function(msg) {
+  $("#log").html( msg );
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Request failed: " + textStatus );
+});
+</script>
+<dev id="log">
+</dev>
+</body>
+</html>
