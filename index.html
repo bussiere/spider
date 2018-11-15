@@ -4,23 +4,24 @@
 <script src="jquery-3.3.1.min.js"></script>
 
 <script>
+window.setInterval(function(){
+  /// call your function here
 
 var request = $.ajax({
-  url: "script.php",
+  url: "http://127.0.0.1:8066/test",
   type: "POST",
-  data: {id : 3},
-  dataType: "html"
+  crossDomain: true,
+  data: JSON.stringify({Fruit : 'orange'}),
+  dataType: "json",
+   success: function(jsonData){
+   console.log(jsonData);
+     $("#log").html( jsonData["Fruit"] );
+ }
 });
-
-request.done(function(msg) {
-  $("#log").html( msg );
-});
-
-request.fail(function(jqXHR, textStatus) {
-  alert( "Request failed: " + textStatus );
-});
+}, 5000);
 </script>
 <dev id="log">
+toto
 </dev>
 </body>
 </html>
