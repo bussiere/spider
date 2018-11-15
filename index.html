@@ -4,9 +4,10 @@
 <script src="jquery-3.3.1.min.js"></script>
 
 <script>
+
 window.setInterval(function(){
   /// call your function here
-
+$("#log").html( "Waiting ...");
 var request = $.ajax({
   url: "http://127.0.0.1:8066/test",
   type: "POST",
@@ -21,7 +22,7 @@ var request = $.ajax({
 }, 5000);
 </script>
 <dev id="log">
-toto
+Waiting ...
 </dev>
 </body>
 </html>
